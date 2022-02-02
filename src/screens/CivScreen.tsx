@@ -8,17 +8,14 @@ import {
 import * as React from "react";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import { Headline } from "react-native-paper";
+import { useCivilisations } from "../hooks/useCivilisation";
 
 type Props = {};
 
-fetch('https://age-of-empires-2-api.herokuapp.com/api/v1/civilizations', {
-  method: 'GET',
-  headers: {
-    Accept: 'application/json',
-  },
-});
-
 const CivScreen = (props: Props) => {
+  const {isLoading, isError, data} = useCivilisations();
+
+
   return (
     <View>
       <View>
@@ -27,7 +24,7 @@ const CivScreen = (props: Props) => {
         </ImageBackground>
       </View>
       <View>
-        <Text> </Text>
+        <Text> {JSON.stringify(data)}</Text>
       </View>
     </View>
   );
