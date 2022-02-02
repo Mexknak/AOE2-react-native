@@ -1,9 +1,13 @@
 
 This is a AOE app :
 
-
 # AOE2-react-native
 my first react native application
+
+Use this command to start the app :
+
+npm start
+
 
 Try it mow :
 
