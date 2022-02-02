@@ -20,7 +20,6 @@ const CivScreen = (props: Props) => {
 
   const renderItem = (props: any) => <CardAOE {...props}/>
  
-console.log(data.civilizations);
 
 
   return (

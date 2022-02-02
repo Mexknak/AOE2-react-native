@@ -1,8 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import { Title,  Paragraph, Card  } from 'react-native-paper';
+import { Title,  Paragraph, Card, Button  } from 'react-native-paper';
 
-type Props = {};
 
 // interface Card {
 //   name: string;
@@ -10,18 +9,21 @@ type Props = {};
 //   team_bonus: string;
 // }
 
+interface IPropsAOE {
+      name : string
+      army_type : string
+      team_bonus : string
+}
 
-const CardAOE = ({props}: any) => {
-  console.log(props);
+const CardAOE = ({item}: any) => {
   
   return (
-    <Card>
+    <Card style={styles.civCard}>
       <Card.Content>
-        <Title>Card title</Title>
-        <Paragraph>Card content</Paragraph>
-        {/* <Paragraph>{props.name} </Paragraph>
-        <Paragraph>{props.army_type} </Paragraph>
-        <Paragraph>{props.team_bonus} </Paragraph> */}
+        <Title>{item.name} </Title>
+        <Paragraph>{item.army_type} </Paragraph>
+        <Paragraph>{item.team_bonus} </Paragraph>
+        <Button mode='outlined'> Details </Button>
       </Card.Content>
     </Card>
   );
@@ -29,4 +31,9 @@ const CardAOE = ({props}: any) => {
 
 export default CardAOE;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  civCard: {
+    marginHorizontal: 20,
+    marginBottom: 32,
+  },
+});
