@@ -10,3 +10,4 @@ async function fetchData() {
 export function useCivilisations() {
   return useQuery(["civilizations"], fetchData);
 }
+ 
