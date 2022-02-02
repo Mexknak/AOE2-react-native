@@ -6,7 +6,7 @@ my first react native application
 
 Use this command to start the app :
 
-npm start
+```npm start```
 
 
 Try it mow :
