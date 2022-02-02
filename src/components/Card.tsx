@@ -56,6 +56,3 @@ const styles = StyleSheet.create({
     marginBottom: 32,
   },
 });
-function setVisible(arg0: boolean) {
-  throw new Error("Function not implemented.");
-}
