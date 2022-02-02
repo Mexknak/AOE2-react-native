@@ -1,4 +1,10 @@
-import { View, Text, StyleSheet, ImageBackground, FlatList } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ImageBackground,
+  FlatList,
+} from "react-native";
 import * as React from "react";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import { ActivityIndicator, Headline } from "react-native-paper";
@@ -10,7 +16,6 @@ type Props = {};
 const CivScreen = (props: Props) => {
   const { isLoading, isError, data } = useCivilisations();
 
-
   if (isLoading) {
     return <Text>Is loading</Text>;
   }
@@ -18,24 +23,26 @@ const CivScreen = (props: Props) => {
     return <Text>ALAN !!! ALED !!!</Text>;
   }
 
-  const renderItem = (props: any) => <CardAOE {...props}/>
- 
+  function onPressDetails(){
+    alert("bonjour");
+  }
 
+  const renderItem = (props: any) => <CardAOE onPressDetails={onPressDetails} {...props} />;
 
   return (
-      <View>
-        <ImageBackground
-          source={require("../img/fondAOE.png")}
-          style={styles.image}
-        >
-          <Headline style={styles.headline}>Liste des Civilisations</Headline>
-        </ImageBackground>
-        <FlatList
+    <View>
+      <ImageBackground
+        source={require("../img/fondAOE.png")}
+        style={styles.image}
+      >
+        <Headline style={styles.headline}>Liste des Civilisations</Headline>
+      </ImageBackground>
+      <FlatList
         data={data.civilizations}
-                renderItem={renderItem}
+        renderItem={renderItem}
         keyExtractor={(props) => props.id}
       />
-      </View>
+    </View>
   );
 };
 
