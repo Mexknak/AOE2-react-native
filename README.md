@@ -9,8 +9,8 @@ Use this command to start the app :
 ```console npm start```
 
 
-Try it mow :
+Try it now :
 
 https://expo.dev/@mexknak/reactAOE
 
-Create by Tony Pâques
+Created by Tony Pâques
