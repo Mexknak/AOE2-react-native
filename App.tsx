@@ -1,20 +1,20 @@
-import { StyleSheet, View } from "react-native";
-import CivScreen from "./src/screens/CivScreen";
+import { StyleSheet } from "react-native";
 import { QueryClient, QueryClientProvider } from "react-query";
 import React from "react";
-import { Provider } from "react-native-paper";
+import { RootNavigator } from "./src/navigation/RootNavigator";
+import { StatusBar } from "expo-status-bar";
+import { NavigationContainer } from "@react-navigation/native";
 
 const queryClient = new QueryClient();
 
 export default function App() {
   return (
-    <Provider>
-      <QueryClientProvider client={queryClient}>
-        <View style={styles.container}>
-          <CivScreen />
-        </View>
-      </QueryClientProvider>
-    </Provider>
+    <QueryClientProvider client={queryClient}>
+      <NavigationContainer>
+        <RootNavigator />
+        <StatusBar style="auto" />
+      </NavigationContainer>
+    </QueryClientProvider>
   );
 }
 
@@ -23,3 +23,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
+
+
+
+
+

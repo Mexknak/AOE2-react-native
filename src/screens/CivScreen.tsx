@@ -7,9 +7,11 @@ import {
 } from "react-native";
 import * as React from "react";
 import { Colors } from "react-native/Libraries/NewAppScreen";
-import { ActivityIndicator, Headline } from "react-native-paper";
+import { Headline, Provider } from "react-native-paper";
 import { useCivilisations } from "../hooks/useCivilisation";
 import CardAOE from "../components/Card";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 type Props = {};
 
@@ -23,13 +25,21 @@ const CivScreen = (props: Props) => {
     return <Text>ALAN !!! ALED !!!</Text>;
   }
 
-  function onPressDetails(){
+  function onPressDetails() {
     alert("bonjour");
   }
 
-  const renderItem = (props: any) => <CardAOE onPressDetails={onPressDetails} {...props} />;
+  const renderItem = (props: any) => (
+    <CardAOE onPressDetails={onPressDetails} {...props} />
+  );
+
+  const queryClient = new QueryClient();
+
 
   return (
+  <Provider>
+      <QueryClientProvider client={queryClient}>
+        <SafeAreaView>
     <View>
       <ImageBackground
         source={require("../img/fondAOE.png")}
@@ -43,6 +53,9 @@ const CivScreen = (props: Props) => {
         keyExtractor={(props) => props.id}
       />
     </View>
+    </SafeAreaView>
+      </QueryClientProvider>
+    </Provider>
   );
 };
 
