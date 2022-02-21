@@ -8,15 +8,15 @@ import {
 import * as React from "react";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import { ActivityIndicator, Headline, Provider } from "react-native-paper";
-import { useCivilisations } from "../hooks/useCivilisation";
-import CardAOE from "../components/Card";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { useTechnology } from "../hooks/useTechnologie";
+import TechCard from "../components/CardTech";
 
 type Props = {};
 
-const CivScreen = (props: Props) => {
-  const { isLoading, isError, data } = useCivilisations();
+const TechnoScreen = (props: Props) => {
+  const { isLoading, isError, data } = useTechnology();
 
   if (isLoading) {
     return (
@@ -35,7 +35,7 @@ const CivScreen = (props: Props) => {
   }
 
   const renderItem = (props: any) => (
-    <CardAOE onPressDetails={onPressDetails} {...props} />
+    <TechCard onPressDetails={onPressDetails} {...props} />
   );
 
   const queryClient = new QueryClient();
@@ -50,11 +50,11 @@ const CivScreen = (props: Props) => {
               style={styles.image}
             >
               <Headline style={styles.headline}>
-                Liste des Civilisations
+                Liste des Technologies
               </Headline>
             </ImageBackground>
             <FlatList
-              data={data.civilizations}
+              data={data.technologies}
               renderItem={renderItem}
               keyExtractor={(props) => props.id}
             />
@@ -77,4 +77,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CivScreen;
+export default TechnoScreen;

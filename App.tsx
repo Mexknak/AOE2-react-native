@@ -1,4 +1,3 @@
-import { StyleSheet } from "react-native";
 import { QueryClient, QueryClientProvider } from "react-query";
 import React from "react";
 import { RootNavigator } from "./src/navigation/RootNavigator";
@@ -17,14 +16,3 @@ export default function App() {
     </QueryClientProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
-
-
-
-
-

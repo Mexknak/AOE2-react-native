@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, TouchableHighlight } from "react-native";
 import React from "react";
 import {
   Title,
@@ -7,17 +7,17 @@ import {
   Button,
   Modal,
   Portal,
-  Provider,
 } from "react-native-paper";
 
 interface IPropsAOE {
-  name: string;
-  army_type: string;
-  team_bonus: string;
-  onPressDetails: void;
+  item: {
+    name: string;
+    army_type: string;
+    team_bonus: string;
+  };
 }
 
-const CardAOE = ({ item, onPressDetails }: any) => {
+const CardAOE = ({ item }: IPropsAOE) => {
   const [visible, setVisible] = React.useState(false);
 
   const showModal = () => setVisible(true);
@@ -25,26 +25,24 @@ const CardAOE = ({ item, onPressDetails }: any) => {
   const containerStyle = { backgroundColor: "white", padding: 20 };
 
   return (
-    <Card style={styles.civCard}>
-      <Card.Content>
-        <Portal>
-          <Modal
-            visible={visible}
-            onDismiss={hideModal}
-            contentContainerStyle={containerStyle}
-          >
-            <Paragraph>{item.army_type} </Paragraph>
-            <Paragraph>{item.team_bonus} </Paragraph>
-          </Modal>
-        </Portal>
-        <Title>{item.name} </Title>
-        <Paragraph>{item.army_type} </Paragraph>
-        <Paragraph>{item.team_bonus} </Paragraph>
-        <Button mode="outlined" onPress={showModal}>
-          Details
-        </Button>
-      </Card.Content>
-    </Card>
+    <TouchableHighlight onPress={showModal}>
+      <Card style={styles.civCard}>
+        <Card.Content>
+          <Portal>
+            <Modal
+              visible={visible}
+              onDismiss={hideModal}
+              contentContainerStyle={containerStyle}
+            >
+              <Paragraph>{item.army_type} </Paragraph>
+            </Modal>
+          </Portal>
+          <Title>{item.name} </Title>
+          <Paragraph>Type d'armée : {item.army_type} </Paragraph>
+          <Paragraph>Bonus d'équipe : {item.team_bonus} </Paragraph>
+        </Card.Content>
+      </Card>
+    </TouchableHighlight>
   );
 };
 

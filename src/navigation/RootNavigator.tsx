@@ -2,10 +2,14 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import CivScreen from "../screens/CivScreen";
 import HomeScreen from "../screens/HomeScreen";
+import TechnoScreen from "../screens/TechnoScreen";
+import UnitScreen from "../screens/UnitScreen";
 
 export type RouteParams = {
   Home: undefined;
-  Civ: undefined;
+  Civilisations: undefined;
+  Technologies: undefined;
+  Unitees: undefined;
 };
 
 const Stack = createNativeStackNavigator<RouteParams>();
@@ -22,8 +26,22 @@ export const RootNavigator = () => {
           }}
         />
         <Stack.Screen
-          name="Civ"
+          name="Civilisations"
           component={CivScreen}
+          options={{
+            animation: "slide_from_right",
+          }}
+        />
+        <Stack.Screen
+          name="Technologies"
+          component={TechnoScreen}
+          options={{
+            animation: "slide_from_right",
+          }}
+        />
+        <Stack.Screen
+          name="Unitees"
+          component={UnitScreen}
           options={{
             animation: "slide_from_right",
           }}
