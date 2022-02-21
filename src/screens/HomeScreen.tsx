@@ -1,8 +1,9 @@
-import { StyleSheet, View, Text, Button } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { RouteParams } from "../navigation/RootNavigator";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { Button } from "react-native-paper";
 
 type Props = {};
 
@@ -21,9 +22,25 @@ const HomeScreen = (props: Props) => {
   return (
     <View style={styles.container}>
       <Text style={styles.titre}> App of Empire </Text>
-      <Button title={"Civilisations"} onPress={onCivilizationPress} />
-      <Button title={"Unitees"} onPress={onUnitPress} />
-      <Button title={"technologies"} onPress={onTechnologyPress} />
+      <Text style={styles.hr}>________________</Text>
+      <View style={styles.bouton}>
+        <Button mode="contained" onPress={onCivilizationPress}>
+          {" "}
+          Civilisations{" "}
+        </Button>
+      </View>
+      <View style={styles.bouton}>
+        <Button mode="contained" onPress={onUnitPress}>
+          {" "}
+          Unitées{" "}
+        </Button>
+      </View>
+      <View style={styles.bouton}>
+        <Button mode="contained" onPress={onTechnologyPress}>
+          {" "}
+          Technologies{" "}
+        </Button>
+      </View>
     </View>
   );
 };
@@ -35,9 +52,24 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   titre: {
-    maxWidth: 100,
+    maxWidth: 200,
     marginLeft: "auto",
     marginRight: "auto",
+    marginBottom: 20,
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  bouton: {
+    margin: 10,
+    width: 200,
+    marginLeft: "auto",
+    marginRight: "auto",
+  },
+  hr: {
+    maxWidth: 200,
+    marginRight: "auto",
+    marginLeft: "auto",
+    marginBottom: 20,
   },
 });
 

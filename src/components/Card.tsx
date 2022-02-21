@@ -1,10 +1,9 @@
-import { StyleSheet, TouchableHighlight } from "react-native";
+import { StyleSheet, TouchableHighlight, View } from "react-native";
 import React from "react";
 import {
   Title,
   Paragraph,
   Card,
-  Button,
   Modal,
   Portal,
 } from "react-native-paper";
@@ -33,13 +32,15 @@ const CardAOE = ({ item }: IPropsAOE) => {
               visible={visible}
               onDismiss={hideModal}
               contentContainerStyle={containerStyle}
+              style={{margin: 30, borderRadius: 15}}
             >
-              <Paragraph>{item.army_type} </Paragraph>
+              <Paragraph>Type d'armée : {item.army_type} </Paragraph>
+              <Paragraph>Bonus d'équipe : {item.team_bonus} </Paragraph>
             </Modal>
           </Portal>
+          <View style={styles.nomciv}>
           <Title>{item.name} </Title>
-          <Paragraph>Type d'armée : {item.army_type} </Paragraph>
-          <Paragraph>Bonus d'équipe : {item.team_bonus} </Paragraph>
+          </View>
         </Card.Content>
       </Card>
     </TouchableHighlight>
@@ -50,7 +51,14 @@ export default CardAOE;
 
 const styles = StyleSheet.create({
   civCard: {
+    marginLeft: "auto",
+    marginRight: "auto",
+    width: 300,
     marginHorizontal: 20,
     marginBottom: 32,
+    borderRadius: 15,
   },
+  nomciv: {
+    alignItems: "center",
+  }
 });

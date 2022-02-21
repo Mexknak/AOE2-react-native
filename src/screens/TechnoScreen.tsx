@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
     color: Colors.white,
     textAlign: "center",
     lineHeight: 150,
+    fontWeight: "bold",
   },
   image: {
     height: 250,

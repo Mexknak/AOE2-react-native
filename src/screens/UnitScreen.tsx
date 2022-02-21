@@ -15,7 +15,7 @@ import {
   
   type Props = {};
   
-  const TechnoScreen = (props: Props) => {
+  const UnitScreen = (props: Props) => {
     const { isLoading, isError, data } = useTechnology();
   
     if (isLoading) {
@@ -50,7 +50,7 @@ import {
                 style={styles.image}
               >
                 <Headline style={styles.headline}>
-                  Liste des Technologies
+                  Liste des Unitées
                 </Headline>
               </ImageBackground>
               <FlatList
@@ -70,6 +70,7 @@ import {
       color: Colors.white,
       textAlign: "center",
       lineHeight: 150,
+      fontWeight: "bold",
     },
     image: {
       height: 250,
@@ -77,5 +78,5 @@ import {
     },
   });
   
-  export default TechnoScreen;
+  export default UnitScreen;
   
